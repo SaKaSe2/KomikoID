@@ -243,8 +243,12 @@ function PageImage({ page, index, zoom, showTranslation }) {
                     )}
                     onLoad={() => setLoaded(true)}
                     onError={() => setError(true)}
-                    priority={index < 3}
-                    quality={90}
+                    priority={index < 2}
+                    loading={index < 2 ? 'eager' : 'lazy'}
+                    quality={index < 3 ? 85 : 75}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBEQCEAwEPwAB//9k="
                     unoptimized
                 />
             )}
